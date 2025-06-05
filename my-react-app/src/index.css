@@ -1,0 +1,14 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #FFFAF4;
+  --color-text: #553501;
+  --color-border: #edc190;
+  color: var(--color-text);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 10px 8px;
+}

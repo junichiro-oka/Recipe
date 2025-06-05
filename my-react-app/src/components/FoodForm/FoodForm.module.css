@@ -1,0 +1,39 @@
+.foodForm h2 {
+    text-align: center;
+}
+
+.foodForm input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.foodForm input,
+.foodForm select,
+.button {
+    min-height: 38px;
+    padding: 2px 8px;
+    font-size: 1rem;
+}
+
+.button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.list {
+    padding: 0 1rem;
+}
+
+.ingList {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.deleteButton {
+    color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}

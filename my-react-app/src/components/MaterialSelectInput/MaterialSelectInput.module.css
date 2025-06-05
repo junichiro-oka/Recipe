@@ -1,0 +1,47 @@
+.MaterialSelectInput {
+    margin-top: 3rem;
+}
+
+.ingUl {
+    padding: 0 1rem;
+}
+
+.ingList {
+    display: flex;
+    justify-content: left;
+    padding-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ingSelect {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ingSelect select,.quantity select{
+    border-color: var(--color-border);
+    border-radius: 4px;
+    width: 50px;
+    height: 30px;
+    color: var(--color-text);
+}
+
+.quantity {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.unit {
+    width: 3rem;
+}
+
+.deleteButton {
+    color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}

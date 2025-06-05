@@ -1,0 +1,58 @@
+.RecipeDetailPage {
+    position: relative;
+    height: 100vh;
+}
+
+.padding {
+    padding: 0 8px;
+}
+
+.ing {
+    padding-left: 0;
+}
+
+.ingList {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.step {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.stepList {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.Button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.editButton,.deleteButton {
+    margin-bottom: 16px;
+}
+
+.editButton button {
+    width: 100%;
+    border: none;
+    background-color: rgb(68,155,242);
+    color: white;
+    border-radius: 4px;
+    height: 36px;
+}
+
+.deleteButton button{
+    width: 100%;
+    border: none;
+    background-color: rgb(242, 67, 67);
+    color: white;
+    border-radius: 4px;
+    height: 36px;
+}

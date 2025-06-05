@@ -1,0 +1,119 @@
+.recipeForm h2{
+    text-align: center;
+}
+
+.recipeTitle,.selectType,.imageUpload,.MaterialSelectInput,.StepInput {
+    margin-bottom: 4rem;
+}
+
+.recipeTitle label {
+    font-weight: bold;
+}
+
+.recipeTitle input {
+    width: 100%;
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    min-height: 38px;
+    padding: 2px 8px;
+    margin: 6px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.selectType select{
+    width: 100%;
+    width: 100%;
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    min-height: 38px;
+    padding: 2px 8px;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: #FFFAF4;
+    padding: 2rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ingredientHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .addButton {
+    box-sizing: border-box;
+    /* width: 100%; */
+    height: 30px;
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .notes {
+    margin-bottom: 24px;
+  }
+
+  .memoTextarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 150px;
+    border-color: hsl(0, 0%, 80%);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333;
+  }
+  
+  .submitButton,.cancelButton {
+    width: 100%;
+    border: none;
+    background-color: rgb(68,155,242);
+    color: white;
+    border-radius: 4px;
+    height: 36px;
+    margin-bottom: 16px;
+  }
+
+  .cancelButton {
+    background-color: rgb(242, 67, 67);
+
+  }
