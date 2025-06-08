@@ -151,16 +151,19 @@ const RecipeForm = ({ existingRecipe, recipeId, onCancel, onSave }: RecipeFormPr
       </div>
 
       <div className={styles.MaterialSelectInput}>
+        <div className={styles.materialTitle}>
+          <h3>材料</h3>
+          <button className={styles.addButton} onClick={() => setShowFoodForm(true)}>
+            ＋ 食材を登録
+          </button>
+        </div>
         <MaterialSelectInput
           key={existingRecipe ? `edit-${recipeId}-${existingRecipe.title}` : 'new'}
-          title="材料"
+          title=""
           ref={inputRef}
           onChange={handleIngredientsChange}
           initialIngredients={ingredients}
         />
-        <button className={styles.addButton} onClick={() => setShowFoodForm(true)}>
-          ＋ 食材を登録
-        </button>
       </div>
 
       <div className={styles.StepInput}>

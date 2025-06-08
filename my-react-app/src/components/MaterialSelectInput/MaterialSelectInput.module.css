@@ -3,7 +3,7 @@
 }
 
 .ingUl {
-    padding: 0 1rem;
+    padding: 0;
 }
 
 .ingList {
@@ -23,9 +23,12 @@
 .ingSelect select,.quantity select{
     border-color: var(--color-border);
     border-radius: 4px;
-    width: 50px;
     height: 30px;
     color: var(--color-text);
+}
+
+.markInput {
+    width: 40px;
 }
 
 .quantity {
