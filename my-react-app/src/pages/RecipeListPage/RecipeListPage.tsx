@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import styles from "./RecipeListPage.module.css";
+import { Link } from "react-router-dom";
 
 const RecipeListPage = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
@@ -38,30 +39,36 @@ const RecipeListPage = () => {
 
   return (
     <div className={styles.ReciprListPage}>
-      <div className={styles.sort}>
-        {["すべて", "主菜", "副菜", "汁物"].map((type) => (
-          <button
-            key={type}
-            onClick={() => setSelectedType(type)}
-            className={type === selectedType ? styles.active : ""}
-          >
-            {type}
-          </button>
-        ))}
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="レシピを検索"
-          value={searchKeyword}
-          onChange={(e) => setSearchKeyword(e.target.value)}
-          className={styles.searchInput}
-        />
+      <div className={styles.fixed}>
+        <div className={styles.sort}>
+          {["すべて", "主菜", "副菜", "汁物"].map((type) => (
+            <button
+              key={type}
+              onClick={() => setSelectedType(type)}
+              className={type === selectedType ? styles.active : ""}
+            >
+              {type}
+            </button>
+          ))}
+        </div>
+        <div>
+          <input
+            type="text"
+            placeholder="レシピを検索"
+            value={searchKeyword}
+            onChange={(e) => setSearchKeyword(e.target.value)}
+            className={styles.searchInput}
+          />
+        </div>
       </div>
 
       {filteredRecipes.map((r) => (
         <RecipeCard key={r.id} id={r.id} title={r.title} />
       ))}
+
+      <div className={styles.recipeFormButton}>
+        <Link to="recipeForm"> ＋</Link>
+      </div>
     </div>
   );
 };

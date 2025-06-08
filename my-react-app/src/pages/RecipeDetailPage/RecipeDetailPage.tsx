@@ -82,7 +82,7 @@ const RecipeDetailPage = () => {
     try {
       await deleteDoc(doc(db, "recipes", id));
       alert("レシピを削除しました");
-      navigate("/recipes");
+      navigate("/");
     } catch (error) {
       console.error("削除エラー:", error);
       alert("削除に失敗しました");

@@ -8,6 +8,7 @@ interface Ingredient {
     id: string;
     name: string;
     unit: string;
+    excludeFromList?: boolean;
 }
 
 interface Props {
@@ -18,6 +19,7 @@ const FoodForm = ({ onRegister }: Props) => {
     const [name, setName] = useState("");
     const [unit, setUnit] = useState("個");
     const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+    const [excludeFromList, setExcludeFromList] = useState(false);
 
 
     const handleSubmit = async() => {
@@ -43,9 +45,11 @@ const FoodForm = ({ onRegister }: Props) => {
             await addDoc(collection(db, "ingredients"), {
                 name: name.trim(),
                 unit,
+                excludeFromList,
             });
             setName("");
             setUnit("");
+            setExcludeFromList(false);
             await fetchIngredients();
             if (onRegister) onRegister();
         
@@ -83,8 +87,7 @@ const FoodForm = ({ onRegister }: Props) => {
             <h2>食材を登録する</h2>
             <div>
                 <h3>食材名</h3>
-                <input value={name} onChange={(e) => setName(e.target.value)} />
-
+                <input className={styles.foodName} value={name} onChange={(e) => setName(e.target.value)} />
                 <br />
                 <h3>単位</h3>
                 <select value={unit} onChange={(e) => setUnit(e.target.value)}>
@@ -107,6 +110,15 @@ const FoodForm = ({ onRegister }: Props) => {
                     <option value="適量">適量</option>
                     <option value="少々">少々</option>
                 </select>
+
+                <div className={styles.check}>
+                    <input
+                        type="checkbox"
+                        checked={excludeFromList}
+                        onChange={(e) => setExcludeFromList(e.target.checked)}
+                    />
+                    <span>この食材を買い物リストに表示しない</span>
+                </div>
             </div>
             <div><button className={styles.button} onClick={handleSubmit}>登録</button></div>
 

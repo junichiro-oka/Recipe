@@ -1,18 +1,16 @@
 .ReciprListPage {
-    margin-top: 75px;
+    margin-top: 111px;
 }
 
-.active {
-    font-weight: bold;
-    background-color: #e0e0e0;
-  }
-
-.sort{
+.fixed {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+}
+
+.sort{
     display: flex;
 }
 
@@ -21,7 +19,14 @@
     border: none;
     box-shadow: 0 2px 4px rgba(255, 177, 109, 0.1);
     height: 75px;
-    background-color: #FFFAF4;;
+    background-color: #FFFAF4;
+    color: var(--color-text);
+}
+
+.active {
+    font-weight: bold;
+    background-color: #bd7d16!important;
+    color: #fff!important;
 }
 
 .searchInput {
@@ -29,5 +34,20 @@
     height: 36px;
     box-sizing: border-box;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+}
+
+.recipeFormButton {
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+
+}
+
+.recipeFormButton a {
+    background-color: gray;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 38px;
+    padding: 20px 23px;
 }
