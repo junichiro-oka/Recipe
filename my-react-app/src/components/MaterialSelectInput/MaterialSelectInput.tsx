@@ -4,6 +4,7 @@ import styles from "./MaterialSelectInput.module.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
+
 interface Props {
     title: string;
     onChange: (ingredients: SelectedIngredient[]) => void;
@@ -14,6 +15,7 @@ interface IngredientOption {
   value: string;
   label: string;
   unit: string;
+  mark: string;
 }
 
 type SelectedIngredient = IngredientOption & {
@@ -33,6 +35,7 @@ const MaterialSelectInput = forwardRef(({ title, onChange, initialIngredients = 
         value: doc.id,
         label: data.name,
         unit: data.unit,
+        mark: data.mark,
       };
     });
     setIngredientOptions(ingredients);
@@ -130,6 +133,7 @@ const MaterialSelectInput = forwardRef(({ title, onChange, initialIngredients = 
                 value={ing.quantity}
                 onChange={(e) => handleQuantityChange(index, Number(e.target.value))}
               >
+                <option value={0.25}>0.25</option>
                 {[
                     // 1〜20（0.5刻み）
                     ...Array.from({ length: 40 }, (_, i) => {

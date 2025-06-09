@@ -11,6 +11,7 @@ interface Ingredient {
   label: string;
   quantity: string;
   unit: string;
+  mark: string;
 }
 
 interface Recipe {
@@ -113,7 +114,10 @@ const RecipeDetailPage = () => {
               <ul className={styles.ing}>
                 {recipe.ingredients && recipe.ingredients.map((ing, index) => (
                   <li key={index} className={styles.ingList}>
-                    <div>{ing.label}</div>
+                    <div>
+                      {ing.mark && <span>{ing.mark} </span>}
+                      {ing.label}
+                    </div>
                     <div>{ing.quantity}{ing.unit}</div>
                   </li>
                 ))}

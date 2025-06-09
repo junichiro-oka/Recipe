@@ -50,19 +50,37 @@ const ShoppingListPage = () => {
 
         const ingredientMap: Record<string, { quantity: number; unit: string }> = {};
 
-        for (const recipe of recipeDocs) {
-          if (usedTitles.includes(recipe.title)) {
-            for (const ing of recipe.ingredients) {
-              if (excludeNames.includes(ing.label)) continue;
+        // 修正: 同じレシピが複数回選択された場合の対応
+        for (const title of usedTitles) {
+          if (!title) continue; // 空文字列をスキップ
+          
+          const recipe = recipeDocs.find(r => r.title === title);
+          if (!recipe) continue;
+          
+          for (const ing of recipe.ingredients) {
+            if (excludeNames.includes(ing.label)) continue;
 
-              if (ingredientMap[ing.label]) {
+            if (ingredientMap[ing.label]) {
+              // 単位が同じかチェック
+              if (ingredientMap[ing.label].unit === ing.unit) {
                 ingredientMap[ing.label].quantity += ing.quantity;
               } else {
-                ingredientMap[ing.label] = {
-                  quantity: ing.quantity,
-                  unit: ing.unit,
-                };
+                // 単位が異なる場合は別項目として扱う
+                const key = `${ing.label} (${ing.unit})`;
+                if (ingredientMap[key]) {
+                  ingredientMap[key].quantity += ing.quantity;
+                } else {
+                  ingredientMap[key] = {
+                    quantity: ing.quantity,
+                    unit: ing.unit,
+                  };
+                }
               }
+            } else {
+              ingredientMap[ing.label] = {
+                quantity: ing.quantity,
+                unit: ing.unit,
+              };
             }
           }
         }
@@ -78,7 +96,7 @@ const ShoppingListPage = () => {
     fetchShoppingList();
   }, []);
 
-  // メモ変更時にデバウンスして自動保存
+  // メモ変更時にデバウンスして自動保存（修正: クリーンアップ追加）
   useEffect(() => {
     if (debounceTimer) clearTimeout(debounceTimer);
 
@@ -91,6 +109,13 @@ const ShoppingListPage = () => {
     }, 300);
 
     setDebounceTimer(newTimer);
+
+    // コンポーネントのアンマウント時にタイマーをクリア
+    return () => {
+      if (newTimer) {
+        clearTimeout(newTimer);
+      }
+    };
   }, [memo]);
 
   const handleClearMemo = () => {

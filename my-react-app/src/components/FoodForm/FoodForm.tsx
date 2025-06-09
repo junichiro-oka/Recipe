@@ -48,7 +48,7 @@ const FoodForm = ({ onRegister }: Props) => {
                 excludeFromList,
             });
             setName("");
-            setUnit("");
+            setUnit("個");
             setExcludeFromList(false);
             await fetchIngredients();
             if (onRegister) onRegister();
